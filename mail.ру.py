@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import os
 
-API_TOKEN = os.getenv("API_TOKEN", "ТОКЕН_ОТ_BOTFATHER")
+API_TOKEN = os.getenv("API_TOKEN", 7991271351:AAG8md8t4hkYaco2GwpRkZNDunTSpZgr5lU)
 ADMIN_ID = 5863481865
 MANAGER_PHONE = "+79536311565"
 DATA_FILE = "zayavki.txt"
