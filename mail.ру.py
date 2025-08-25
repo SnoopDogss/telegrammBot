@@ -2,9 +2,9 @@ import telebot
 from telebot import types
 import os
 
-API_TOKEN = os.getenv("API_TOKEN", 7991271351:AAG8md8t4hkYaco2GwpRkZNDunTSpZgr5lU)
-ADMIN_ID = 5863481865
-MANAGER_PHONE = "+79536311565"
+API_TOKEN = os.getenv("API_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
+MANAGER_PHONE = os.getenv("MANAGER_PHONE", "+70000000000")
 DATA_FILE = "zayavki.txt"
 
 bot = telebot.TeleBot(API_TOKEN)
@@ -56,7 +56,7 @@ def menu(message):
             ]
             bot.send_media_group(message.chat.id, media)
         except Exception as e:
-            bot.send_message(message.chat.id, f"⚠️ Ошибка: {e}\nПроверь, что файлы work1.jpg - work4.jpg лежат рядом с ботом.")
+            bot.send_message(message.chat.id, f"⚠️ Ошибка: {e}\nПроверь, что файлы work1.jpg - work4.jpg загружены в проект.")
 
     elif message.text == "💬 Консультация":
         bot.send_message(message.chat.id, "Напиши свой вопрос, и наш менеджер ответит!")
@@ -112,6 +112,8 @@ def clear_requests(message):
     else:
         bot.send_message(message.chat.id, "❌ У вас нет доступа к этой команде.")
 
-bot.polling(none_stop=True)
+if __name__ == "__main__":
+    bot.polling(none_stop=True)
+
 
 
